@@ -22,10 +22,31 @@ function additivePersistence(n) {
 }
 
 function multiplicativePersistence(n) {
+    let result = 0;
+
+    // Single-Diget Value
+    if ( n < 10 && n > 0) {
+        return result
+    }
+
+    // Multiple-Diget Value
+    while (n > 9) {
+        let string = n.toString().split("")
+        n = 1;
+        string.forEach( x => { 
+            n *= parseInt(x, 10)
+        })
+        result++
+        if ( n < 10 && n >= 0) {
+            console.log(result)
+            return result
+        } 
+    }
 	
 }
 
 additivePersistence(199)
+multiplicativePersistence(123456)
 
 /*
 pseudo code
@@ -37,4 +58,6 @@ additivePersistence(1679583) ➞ 3
 // 3 + 9 = 12
 // 1 + 2 = 3
 // It takes 3 iterations to reach a single-digit number.
+
+
 */
